@@ -2,6 +2,15 @@
 
 <%= simple_format @message.content %>
 
+<h2>Like users</h2>
+<% @message.liked_users.each do |u| %>
+  <li><%= u.email %></li>
+<% end %>
+<h2>Subscripted user</h2>
+<% @message.subscribed_users.each do |u| %>
+  <li><%= u.email %></li>
+<% end %>
+
 <h2>Comments list</h2>
 
 <%= form_for [@message, @comment] do |f| %>

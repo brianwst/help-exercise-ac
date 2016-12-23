@@ -21,6 +21,14 @@ namespace :dev do
         m.comments.create!( :content => Faker::Lorem.paragraph,
                             :user => users.sample )
       end
+
+    end
+
+    Message.all.each do |m|
+          2.times do 
+            m.likes.create!(:user_id => users.sample.id, :message_id => m.id )
+            m.subscriptions.create!(:user_id => users.sample.id, :message_id => m.id )
+          end
     end
   end
 
