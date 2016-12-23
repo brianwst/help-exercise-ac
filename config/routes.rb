@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  	namespace :api do
+	  scope 'v1', :defaults => { :format => :json } do
+	  	resources :messages, only: [:index]
+	  end
+	end	
+
   root 'messages#index'
 end
